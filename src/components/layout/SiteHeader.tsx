@@ -44,7 +44,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="/">Partecipa</Button>
+          <Button href="/tickets">Buy ticket</Button>
         </div>
 
         <button
@@ -75,8 +75,8 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <Button href="/" className="mt-2 w-full justify-center">
-              Partecipa
+            <Button href="/tickets" className="mt-2 w-full justify-center">
+              Buy ticket
             </Button>
           </nav>
         </div>

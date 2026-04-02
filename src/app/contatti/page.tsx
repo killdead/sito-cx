@@ -7,7 +7,7 @@ const contactItems = [
 ];
 
 const directPaths = [
-  { title: "Partecipazione", text: "Per capire se il festival fa per te e come organizzarti.", href: "/", cta: "Apri home" },
+  { title: "Tickets", text: "Per vedere i pass festival e i workshop acquistabili separatamente.", href: "/tickets", cta: "Apri tickets" },
   { title: "Partner", text: "Per brand, sponsor e collaborazioni legate al progetto.", href: "/partner", cta: "Vai a partner" },
   { title: "Info utili", text: "Per arrivare, dormire e orientarti nel modo più semplice.", href: "/info", cta: "Apri info" },
 ];
@@ -26,7 +26,7 @@ export default function ContactsPage() {
               Se devi scrivere al team, qui trovi i canali giusti. Se invece devi decidere se partecipare, è meglio partire dalla pagina festival.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button href="/">Partecipa</Button>
+              <Button href="/tickets">Buy ticket</Button>
               <Button href="/partner" variant="secondary">
                 Diventa partner
               </Button>

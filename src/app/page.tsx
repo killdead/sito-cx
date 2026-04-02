@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 
 const proofItems = [
-  { title: "3 giorni pieni", text: "Tra attività, workshop e tempo insieme." },
+  { title: "3 giorni pieni", text: "Tra attivita, workshop e tempo insieme." },
   { title: "3 spot", text: "Giungano, Trentinara e Capaccio Paestum, tutti collegati." },
   { title: "Camping", text: "Arrivi, monti la tenda e resti nel flow del weekend." },
 ];
@@ -22,7 +22,7 @@ const includeItems = [
   {
     id: "02",
     title: "Workshop",
-    text: "Per chi sa già perché viene, e vuole uscire dai tre giorni con qualcosa in più.",
+    text: "Per chi sa gia perche viene, e vuole uscire dai tre giorni con qualcosa in piu.",
   },
   {
     id: "03",
@@ -34,8 +34,7 @@ const includeItems = [
 const activityCards = [
   {
     title: "Highline",
-    description:
-      "Camminare sospesi nel vuoto. Si parte da 60 metri e si arriva al mostro da 1350.",
+    description: "Camminare sospesi nel vuoto. Si parte da 60 metri e si arriva al mostro da 1350.",
     href: "/attivita/highline",
     image: "/highline.jpg",
   },
@@ -64,7 +63,7 @@ const logistics = [
   },
   {
     title: "Come partecipare",
-    text: "Vai alla pagina festival per capire cosa include l’esperienza e come organizzarti.",
+    text: "Vai alla pagina festival per capire cosa include l'esperienza e come organizzarti.",
   },
 ];
 
@@ -115,12 +114,12 @@ export default function HomePage() {
                     Si vola sopra la valle
                     <br />
                     <br />
-                    E tutto quello che succede tra una cosa e l’altra
+                    E tutto quello che succede tra una cosa e l'altra
                   </p>
                   <div className="mt-7 flex flex-wrap gap-3">
-                    <Button href="/">Partecipa</Button>
+                    <Button href="/tickets">Buy ticket</Button>
                     <Button href="/attivita" variant="secondary">
-                      Scopri le attività
+                      Scopri le attivita
                     </Button>
                   </div>
                 </div>
@@ -152,14 +151,14 @@ export default function HomePage() {
                 Si vola sopra la valle
                 <br />
                 <br />
-                E tutto quello che succede tra una cosa e l’altra
+                E tutto quello che succede tra una cosa e l'altra
               </p>
               <div className="mt-5 flex flex-col gap-3">
-                <Button href="/" className="justify-center">
-                  Partecipa
+                <Button href="/tickets" className="justify-center">
+                  Buy ticket
                 </Button>
                 <Button href="/attivita" variant="secondary" className="justify-center">
-                  Scopri le attività
+                  Scopri le attivita
                 </Button>
               </div>
             </div>
@@ -244,7 +243,7 @@ export default function HomePage() {
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-red">Discipline</p>
               <h2 className="mt-2 font-display text-5xl uppercase leading-none text-brand-ink md:text-7xl">
-                Le attività che definiscono il festival
+                Le attivita che definiscono il festival
               </h2>
             </div>
           </div>
@@ -276,13 +275,13 @@ export default function HomePage() {
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-red">Logistica</p>
             <h2 className="mt-3 max-w-[12ch] font-display text-4xl uppercase leading-[0.9] text-brand-ink md:text-6xl">
-              Prima di decidere devi capire se è facile esserci
+              Prima di decidere devi capire se e facile esserci
             </h2>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button href="/info" variant="secondary">
                 Vai alle info
               </Button>
-              <Button href="/">Partecipa</Button>
+              <Button href="/tickets">Buy ticket</Button>
             </div>
           </div>
           <div className="rounded-[1.6rem] border border-brand-ink/12 bg-white px-5 py-5 md:px-6">
@@ -293,35 +292,6 @@ export default function HomePage() {
                   <p className="mt-2 text-sm leading-6 text-brand-ink/76 md:text-base">{item.text}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-3 py-10 md:px-6">
-        <div className="mx-auto max-w-[1240px] overflow-hidden rounded-[2rem] bg-brand-red">
-          <div className="relative px-6 py-9 md:px-8 md:py-10">
-            <div className="absolute inset-x-0 top-0 h-16 opacity-22">
-              <Image src="/brand/Nuvole rosse.png" alt="" fill className="object-cover object-top" />
-            </div>
-            <div className="relative z-10 grid gap-6 lg:grid-cols-[1.04fr_0.96fr] lg:items-end">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-sun">Decisione</p>
-                <h2 className="mt-4 max-w-3xl font-display text-4xl uppercase leading-[0.9] text-white md:text-6xl">
-                  Qui, ora e in movimento
-                </h2>
-              </div>
-              <div>
-                <p className="max-w-xl text-base leading-7 text-white/86">
-                  Spot, camping, programma e logistica per capire se questo è il tuo posto.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <Button href="/">Torna alla home</Button>
-                  <Button href="/partner" variant="secondary" shape="cloud-pill" cloudTone="cream">
-                    Diventa partner
-                  </Button>
-                </div>
-              </div>
             </div>
           </div>
         </div>

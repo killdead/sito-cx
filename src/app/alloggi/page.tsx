@@ -73,8 +73,8 @@ export default function LodgingPage() {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button href="/info">Torna alle info</Button>
-              <Button href="/" variant="secondary">
-                Partecipa
+              <Button href="/tickets" variant="secondary">
+                Buy ticket
               </Button>
             </div>
           </div>

@@ -13,92 +13,95 @@ const activityItems: ActivityItem[] = [
     title: "Highline Festival",
     category: "Highline",
     description:
-      "Linee festival aperte per tutto il weekend, piu la linea da 1 km e la speed line come momenti centrali della parte highline.",
+      "Linee aperte per tutto il weekend, dalla 58 alla 1350. Tra spot, community e linee fighissime.",
     imageSrc: "/activities/highline/Highline attività.jpg",
   },
   {
     title: "Street Boulder",
     category: "Climbing",
     description:
-      "Gara e blocchi distribuiti tra Trentinara e Giungano, con il paese che diventa terreno di gioco per tutta la parte boulder.",
+      "Trentinara e la parete. Vicoli, muri, piazze. Tutto e scalabile.",
     imageSrc: "/activities/climbing/Climbing attività.jpg",
   },
   {
     title: "Arrampicata in falesia",
     category: "Climbing",
     description:
-      "Una parte del festival dedicata alla falesia, per chi vuole uscire dal borgo e stare sulla roccia vera.",
+      "Dal campeggio un sentiero porta alle prime vie della valle: oltre 100 vie di arrampicata sportiva a pochi minuti dal festival.",
     imageSrc: "/activities/climbing/Arrampicata in falesia.jpeg",
   },
   {
     title: "ZipLine",
     category: "Open activity",
     description:
-      "Una delle attivita aperte da vivere sul posto, dentro il ritmo del weekend e non come semplice riempitivo.",
+      "Il vento in faccia, la valle sotto, il mare all'orizzonte. Un minuto e mezzo di volo puro a 120 km/h sopra il Cilento. Prenotazione e biglietto separati.",
     imageSrc: "/activities/Cilentoinvolo1.jpg",
   },
   {
     title: "Voli in Tandem",
     category: "Volo",
     description:
-      "Il modo piu diretto per entrare nella parte volo se non pratichi in autonomia ma vuoi stare davvero in aria.",
+      "Un volo in tandem per chi non pratica, con possibilita di farlo in volo libero o a motore.",
   },
   {
     title: "Attivita di avvicinamento al parapendio",
     category: "Volo",
     description:
-      "Momenti pensati per avvicinarsi al parapendio, capire come funziona e stare piu vicini alla parte volo del festival.",
+      "Momenti introduttivi per capire da vicino come funziona il parapendio e come si entra in questa disciplina.",
     imageSrc: "/activities/fly/fly- avvicinamento al parapendio.jpeg",
   },
   {
     title: "Workshop di chiodatura dal basso - Rolando Larcher",
     category: "Workshop",
     description:
-      "Uno dei workshop piu forti della parte climbing, dedicato a una pratica precisa e non a una dimostrazione generica.",
+      "Un workshop tecnico dedicato alla chiodatura dal basso, guidato da Rolando Larcher.",
+    imageSrc: "/Rolando Larcher.jpeg",
   },
   {
     title: "Workshop Hike & Fly / Cross Country - Moreno Parmesan",
     category: "Workshop",
     description:
-      "Workshop dedicato al lato piu tecnico, mobile e leggibile del volo, per chi vuole stare dentro quella disciplina sul serio.",
+      "Un workshop di due giorni con Moreno Parmesan per approfondire hike & fly e cross country. Teoria e pratica.",
   },
   {
     title: "Workshop Nodi",
     category: "Workshop",
     description:
-      "Una parte tecnica e pratica legata alla highline, pensata per chi vuole affinare una base che conta davvero.",
+      "Sessione pratica sui nodi, pensata per lavorare su una base tecnica essenziale.",
   },
   {
     title: "Workshop Rescue e prove di recupero Highline",
     category: "Workshop",
     description:
-      "Versione dedicata alla highline, centrata sulla parte sicurezza e gestione delle situazioni reali.",
+      "Workshop dedicato alle manovre di recupero in highline, con prove pratiche e attenzione alla sicurezza.",
     imageSrc: "/activities/highline/Rescue highline.jpg",
   },
   {
     title: "Competizione Speedline Highline",
     category: "Competizione",
     description:
-      "La parte piu dura della highline nel weekend, con prove libere, finali e un impatto forte su tutta la scena del festival.",
+      "La gara speedline del festival, con prove e finali concentrate nei momenti piu intensi del weekend.",
+    imageSrc: "/speedmaka.jpeg",
   },
   {
     title: "Gara XC parapendio",
     category: "Competizione",
     description:
-      "La competizione legata al volo durante il festival, con chiusura finale e premio per il miglior volo del weekend.",
+      "La competizione dedicata al cross country, con chiusura finale e premio per il miglior volo del weekend.",
   },
   {
     title: "Arrampicata bambini",
     category: "Climbing",
     description:
-      "Uno spazio piu accessibile dedicato ai piu piccoli dentro la parte arrampicata del festival.",
+      "Uno spazio dedicato ai piu piccoli per provare l'arrampicata in modo semplice e sicuro.",
     imageSrc: "/activities/climbing/Climbing-bimbi.jpeg",
   },
   {
     title: "Spettacolo e live",
     category: "Serata",
     description:
-      "Spettacolo, live sound e DJ set come parte serale del weekend, quando si esce dagli spot ma non dal ritmo del festival.",
+      "Dopo giornate a spingere forte, la sera continua con il gaso tra spettacoli, live e DJ set.",
+    imageSrc: "/spettacoli.jpeg",
   },
 ];
 

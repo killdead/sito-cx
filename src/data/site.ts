@@ -4,6 +4,7 @@ export const NAV_ITEMS = [
   { href: "/", label: "Festival" },
   { href: "/attivita", label: "Attivita" },
   { href: "/programma", label: "Programma" },
+  { href: "/tickets", label: "Tickets" },
   { href: "/info", label: "Info" },
   { href: "/alloggi", label: "Alloggi" },
   { href: "/partner", label: "Partner" },
@@ -12,10 +13,10 @@ export const NAV_ITEMS = [
 
 export const QUICK_ACTIONS = [
   {
-    title: "Partecipa",
-    description: "Vivi il festival da dentro: ticket, camping, community e accesso alle esperienze.",
-    href: "/",
-    cta: "Scopri come unirti",
+    title: "Tickets",
+    description: "Pass festival e workshop premium acquistabili separatamente.",
+    href: "/tickets",
+    cta: "Buy ticket",
     placeholder: "[ILLUSTRAZIONE_OMINO_X]",
   },
   {

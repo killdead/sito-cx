@@ -5,13 +5,14 @@ const passes = [
     title: "Full Pass",
     eyebrow: "Festival ticket",
     description:
-      "Il ticket piu completo per vivere il festival da dentro, tra programma generale, camping e parte community.",
+      "Il pass completo per vivere tutte le anime di Cilento Extreme.",
     includes: [
-      "Accesso al festival per tutto il weekend",
-      "Camping incluso",
-      "Accesso a spettacoli, live e programma generale",
-      "Non include highline e attivita collegate",
-      "Non include i workshop premium",
+      "Highline Festival",
+      "Climbing Festival",
+      "Fly Fest",
+      "Camping",
+      "Live, serate e spettacoli",
+      "Workshop",
     ],
     cta: "Buy full pass",
   },
@@ -61,7 +62,7 @@ export default function TicketsPage() {
           </div>
           <div>
             <p className="max-w-2xl text-base leading-7 text-brand-ink/76 md:text-lg">
-              Due ticket festival e due workshop premium acquistabili separatamente. La parte highline resta fuori dai pass generali.
+              Due ticket festival e due workshop premium acquistabili separatamente, con il Full Pass che apre l'esperienza completa del weekend.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button href="/programma">Guarda programma</Button>

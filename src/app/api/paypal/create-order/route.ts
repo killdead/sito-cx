@@ -1,11 +1,16 @@
 import { NextResponse } from "next/server";
 
-import { getTicketProduct } from "@/lib/tickets";
-
 const PAYPAL_API_BASE =
   process.env.PAYPAL_ENVIRONMENT === "live"
     ? "https://api-m.paypal.com"
     : "https://api-m.sandbox.paypal.com";
+
+type Payload = {
+  amount?: number;
+  currency?: string;
+  description?: string;
+  productId?: string;
+};
 
 async function getPayPalAccessToken() {
   const clientId = process.env.PAYPAL_CLIENT_ID;
@@ -37,12 +42,17 @@ async function getPayPalAccessToken() {
 
 export async function POST(request: Request) {
   try {
-    const body = (await request.json()) as { productId?: string };
-    const productId = body.productId ?? "";
-    const product = getTicketProduct(productId);
+    const body = (await request.json()) as Payload;
+    const amount = Number(body.amount);
+    const currency = String(body.currency || "").toUpperCase();
+    const description = String(body.description || "CilentoXtreme");
 
-    if (!product) {
-      return NextResponse.json({ error: "Prodotto non valido" }, { status: 400 });
+    if (!Number.isInteger(amount) || amount < 50) {
+      return NextResponse.json({ error: "Importo PayPal non valido." }, { status: 400 });
+    }
+
+    if (currency !== "EUR") {
+      return NextResponse.json({ error: "PayPal supporta solo EUR in questo flusso." }, { status: 400 });
     }
 
     const accessToken = await getPayPalAccessToken();
@@ -57,11 +67,11 @@ export async function POST(request: Request) {
         intent: "CAPTURE",
         purchase_units: [
           {
-            reference_id: product.id,
-            description: product.title,
+            reference_id: body.productId || "cilentoxtreme-checkout",
+            description,
             amount: {
-              currency_code: product.paypalCurrency,
-              value: product.paypalAmount,
+              currency_code: currency,
+              value: (amount / 100).toFixed(2),
             },
           },
         ],
@@ -72,12 +82,12 @@ export async function POST(request: Request) {
     const data = (await response.json()) as { id?: string; message?: string };
 
     if (!response.ok || !data.id) {
-      return NextResponse.json({ error: data.message || "Impossibile creare ordine PayPal" }, { status: 500 });
+      return NextResponse.json({ error: data.message || "Impossibile creare l'ordine PayPal." }, { status: 500 });
     }
 
     return NextResponse.json({ id: data.id });
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: "Errore durante la creazione dell'ordine PayPal" }, { status: 500 });
+    return NextResponse.json({ error: "Errore durante l'avvio del pagamento PayPal." }, { status: 500 });
   }
 }

@@ -2,6 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 
+type PayPalFallbackButtonProps = {
+  amount: number;
+  currency: "eur";
+  description: string;
+  productId: string;
+  onSuccess: () => void;
+  onError: (message: string) => void;
+};
+
 declare global {
   interface Window {
     paypal?: {
@@ -10,21 +19,12 @@ declare global {
         createOrder: () => Promise<string>;
         onApprove: (data: { orderID: string }) => Promise<void>;
         onError: (error: unknown) => void;
-      }) => { render: (selector: HTMLElement) => Promise<void> };
+      }) => { render: (target: HTMLElement) => Promise<void> };
     };
   }
 }
 
-type PayPalCheckoutButtonProps = {
-  productId: string;
-  disabled?: boolean;
-};
-
-function getPayPalClientId() {
-  return process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
-}
-
-function ensurePayPalScript(clientId: string) {
+function loadPayPalSdk(clientId: string) {
   return new Promise<void>((resolve, reject) => {
     if (window.paypal) {
       resolve();
@@ -34,7 +34,7 @@ function ensurePayPalScript(clientId: string) {
     const existing = document.querySelector<HTMLScriptElement>('script[data-paypal-sdk="true"]');
     if (existing) {
       existing.addEventListener("load", () => resolve(), { once: true });
-      existing.addEventListener("error", () => reject(new Error("PayPal SDK failed to load")), { once: true });
+      existing.addEventListener("error", () => reject(new Error("PayPal SDK unavailable")), { once: true });
       return;
     }
 
@@ -43,28 +43,35 @@ function ensurePayPalScript(clientId: string) {
     script.async = true;
     script.dataset.paypalSdk = "true";
     script.addEventListener("load", () => resolve(), { once: true });
-    script.addEventListener("error", () => reject(new Error("PayPal SDK failed to load")), { once: true });
+    script.addEventListener("error", () => reject(new Error("PayPal SDK unavailable")), { once: true });
     document.head.appendChild(script);
   });
 }
 
-export function PayPalCheckoutButton({ productId, disabled = false }: PayPalCheckoutButtonProps) {
+export function PayPalFallbackButton({
+  amount,
+  currency,
+  description,
+  productId,
+  onSuccess,
+  onError,
+}: PayPalFallbackButtonProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
-  const clientId = getPayPalClientId();
 
   useEffect(() => {
-    if (!containerRef.current || disabled || !clientId) {
+    const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
+    if (!clientId || !containerRef.current) {
       return;
     }
 
     let mounted = true;
     const activeClientId = clientId;
 
-    async function setup() {
+    async function mountButtons() {
       try {
         setStatus("loading");
-        await ensurePayPalScript(activeClientId);
+        await loadPayPalSdk(activeClientId);
 
         if (!mounted || !containerRef.current || !window.paypal) {
           return;
@@ -77,9 +84,9 @@ export function PayPalCheckoutButton({ productId, disabled = false }: PayPalChec
             style: {
               layout: "vertical",
               shape: "pill",
+              color: "gold",
               label: "paypal",
-              height: 46,
-              tagline: "false",
+              height: 50,
             },
             createOrder: async () => {
               const response = await fetch("/api/paypal/create-order", {
@@ -87,13 +94,18 @@ export function PayPalCheckoutButton({ productId, disabled = false }: PayPalChec
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ productId }),
+                body: JSON.stringify({
+                  amount,
+                  currency,
+                  description,
+                  productId,
+                }),
               });
 
               const result = (await response.json()) as { id?: string; error?: string };
 
               if (!response.ok || !result.id) {
-                throw new Error(result.error || "Unable to create PayPal order");
+                throw new Error(result.error || "PayPal non disponibile in questo momento.");
               }
 
               return result.id;
@@ -107,15 +119,17 @@ export function PayPalCheckoutButton({ productId, disabled = false }: PayPalChec
                 body: JSON.stringify({ orderId: orderID }),
               });
 
+              const result = (await response.json()) as { error?: string };
+
               if (!response.ok) {
-                throw new Error("Unable to capture PayPal order");
+                throw new Error(result.error || "Il pagamento PayPal non è stato confermato.");
               }
 
-              window.location.href = `/tickets?paypal=success&product=${encodeURIComponent(productId)}`;
+              onSuccess();
             },
-            onError: (error) => {
-              console.error(error);
+            onError: () => {
               setStatus("error");
+              onError("PayPal non è disponibile adesso. Riprova tra poco o usa la carta.");
             },
           })
           .render(containerRef.current);
@@ -127,52 +141,26 @@ export function PayPalCheckoutButton({ productId, disabled = false }: PayPalChec
         console.error(error);
         if (mounted) {
           setStatus("error");
+          onError("PayPal non è disponibile adesso. Riprova tra poco o usa la carta.");
         }
       }
     }
 
-    void setup();
+    void mountButtons();
 
     return () => {
       mounted = false;
     };
-  }, [clientId, disabled, productId]);
+  }, [amount, currency, description, onError, onSuccess, productId]);
 
-  if (!clientId) {
-    return (
-      <div className="paypal-shell paypal-shell--pending">
-        <button type="button" className="paypal-fallback-button" disabled aria-disabled="true">
-          <span className="paypal-fallback-button__brand">
-            <span className="paypal-fallback-button__paypal">Pay</span>
-            <span className="paypal-fallback-button__pal">Pal</span>
-          </span>
-          <span className="paypal-fallback-button__text">Paga con PayPal</span>
-          <span className="paypal-fallback-button__state">Configura chiavi</span>
-        </button>
-      </div>
-    );
-  }
-
-  if (disabled) {
-    return (
-      <div className="paypal-shell paypal-shell--pending">
-        <button type="button" className="paypal-fallback-button" disabled aria-disabled="true">
-          <span className="paypal-fallback-button__brand">
-            <span className="paypal-fallback-button__paypal">Pay</span>
-            <span className="paypal-fallback-button__pal">Pal</span>
-          </span>
-          <span className="paypal-fallback-button__text">Paga con PayPal</span>
-          <span className="paypal-fallback-button__state">Prodotto non attivo</span>
-        </button>
-      </div>
-    );
+  if (!process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID) {
+    return null;
   }
 
   return (
-    <div className={`paypal-shell ${status === "error" ? "paypal-shell--error" : ""}`}>
+    <div className="paypal-fallback-wrap">
       <div ref={containerRef} />
-      {status === "loading" ? <p className="paypal-shell__message">Carico PayPal…</p> : null}
-      {status === "error" ? <p className="paypal-shell__message">PayPal non disponibile. Riprova tra poco.</p> : null}
+      {status === "loading" ? <p className="checkout-helper">Carico PayPal…</p> : null}
     </div>
   );
 }

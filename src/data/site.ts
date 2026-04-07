@@ -4,7 +4,6 @@ export const NAV_ITEMS = [
   { href: "/", label: "Festival" },
   { href: "/attivita", label: "Attivita" },
   { href: "/programma", label: "Programma" },
-  { href: "/tickets", label: "Tickets" },
   { href: "/info", label: "Info" },
   { href: "/alloggi", label: "Alloggi" },
   { href: "/partner", label: "Partner" },

@@ -32,12 +32,14 @@ const stays: Stay[] = [
     area: "Trentinara",
     note: "Una soluzione in centro a Trentinara da tenere in lista se vuoi stare vicino alla parte alta del festival.",
     href: "https://www.booking.com/hotel/it/b-amp-b-porta-soprana.it.html",
+    imageSrc: "/lodging/trentinara/porta-soprana/porta-soprana.jpg",
   },
   {
     name: "B&B Belvedere",
     area: "Trentinara",
     note: "Da completare con dettagli e immagini.",
-    href: "/contatti",
+    href: "https://share.google/9gvwzeWgfvGQWb6vl",
+    imageSrc: "/lodging/trentinara/belvedere/belvedere.jpg",
   },
 ];
 
@@ -107,7 +109,7 @@ export default function LodgingPage() {
             {stays.map((stay) => (
               <article
                 key={stay.name}
-                className="overflow-hidden rounded-[1.5rem] border border-brand-ink/12 bg-white"
+                className="flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-brand-ink/12 bg-white"
               >
                 <div className="relative aspect-[4/3] bg-brand-paper">
                   {stay.imageSrc ? (
@@ -125,7 +127,7 @@ export default function LodgingPage() {
                   )}
                 </div>
 
-                <div className="space-y-4 p-5">
+                <div className="flex flex-1 flex-col justify-between gap-4 p-5">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-red">{stay.area}</p>
                     <h3 className="mt-2 text-2xl font-semibold leading-tight text-brand-ink">{stay.name}</h3>

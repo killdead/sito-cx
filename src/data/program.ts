@@ -91,14 +91,6 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   {
     day: "Venerdi",
     time: "18:30",
-    title: "Chiusura linea speedline",
-    type: "Highline",
-    category: "Logistica",
-    location: "Trentinara",
-  },
-  {
-    day: "Venerdi",
-    time: "18:30",
     title: "Chiusura attivita di volo",
     type: "Volo",
     category: "Logistica",
@@ -258,14 +250,6 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   },
   {
     day: "Domenica",
-    time: "10:00 - 13:00",
-    title: "Attivita di avvicinamento al parapendio",
-    type: "Volo",
-    category: "Attivita",
-    location: "Volo",
-  },
-  {
-    day: "Domenica",
     time: "10:00 - 18:30",
     title: "Workshop Hike & Fly / Cross Country - Moreno Parmesan",
     type: "Workshop",
@@ -290,7 +274,15 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   },
   {
     day: "Domenica",
-    time: "16:00",
+    time: "14:00 - 18:00",
+    title: "Arrampicata bambini",
+    type: "Kids",
+    category: "Attivita",
+    location: "Climbing area",
+  },
+  {
+    day: "Domenica",
+    time: "10:00 - 13:00",
     title: "Gara Speedline",
     type: "Highline",
     category: "Competizione",
@@ -298,7 +290,7 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   },
   {
     day: "Domenica",
-    time: "16:00",
+    time: "19:30",
     title: "Chiusura gara XC parapendio",
     type: "Volo",
     category: "Competizione",

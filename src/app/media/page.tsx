@@ -1,9 +1,5 @@
-import { readdir } from "node:fs/promises";
-import path from "node:path";
-
 import Image from "next/image";
-
-import { MediaUploadForm } from "@/components/media/MediaUploadForm";
+import { MEDIA_SECTIONS } from "@/data/media";
 
 const TARGETS = [
   { key: "highline", label: "Highline" },
@@ -12,26 +8,11 @@ const TARGETS = [
   { key: "camp-life", label: "Camp Life" },
 ];
 
-async function getFiles(target: string) {
-  const dir = path.join(process.cwd(), "public", "activities", target);
-  try {
-    const entries = await readdir(dir, { withFileTypes: true });
-    return entries
-      .filter((entry) => entry.isFile())
-      .map((entry) => entry.name)
-      .sort((a, b) => a.localeCompare(b));
-  } catch {
-    return [];
-  }
-}
-
-export default async function MediaPage() {
-  const sections = await Promise.all(
-    TARGETS.map(async (target) => ({
-      ...target,
-      files: await getFiles(target.key),
-    })),
-  );
+export default function MediaPage() {
+  const sections = TARGETS.map((target) => ({
+    ...target,
+    files: MEDIA_SECTIONS[target.key] ?? [],
+  }));
 
   return (
     <main className="pb-12">
@@ -45,7 +26,7 @@ export default async function MediaPage() {
           </div>
           <div>
             <p className="max-w-2xl text-base leading-7 text-brand-ink/76 md:text-lg">
-              Pagina interna per caricare immagini nelle cartelle delle attivita. I file vengono salvati direttamente dentro `public/activities/...`.
+              Su GitHub Pages questa sezione e solo consultabile: le immagini sono pubblicate dal repository e non possono essere caricate online tramite API o filesystem.
             </p>
           </div>
         </div>
@@ -57,8 +38,6 @@ export default async function MediaPage() {
             <article key={section.key} className="surface-card rounded-[2rem] p-6 md:p-8">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-red">{section.label}</p>
               <p className="mt-2 text-sm leading-6 text-brand-ink/70">Cartella: `/public/activities/{section.key}`</p>
-
-              <MediaUploadForm target={section.key} label={section.label} />
 
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {section.files.length > 0 ? (

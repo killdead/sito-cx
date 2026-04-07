@@ -1,53 +1,50 @@
+import { PayPalCheckoutButton } from "@/components/tickets/PayPalCheckoutButton";
 import { Button } from "@/components/ui/Button";
+import { PASSES, WORKSHOPS, type TicketProduct } from "@/lib/tickets";
 
-const passes = [
-  {
-    title: "Full Pass",
-    eyebrow: "Festival ticket",
-    description:
-      "Il pass completo per vivere tutte le anime di Cilento Extreme.",
-    includes: [
-      "Highline Festival",
-      "Climbing Festival",
-      "Fly Fest",
-      "Camping",
-      "Live, serate e spettacoli",
-      "Workshop",
-    ],
-    cta: "Buy full pass",
-  },
-  {
-    title: "Festival Pass",
-    eyebrow: "Festival ticket",
-    description:
-      "La versione piu leggera per entrare nel festival e stare dentro al weekend, senza prendere il pacchetto completo.",
-    includes: [
-      "Accesso al festival",
-      "Accesso a serate e programma generale",
-      "Ticket separato dal Full Pass",
-      "Non include highline e attivita collegate",
-      "Non include i workshop premium",
-    ],
-    cta: "Buy festival pass",
-  },
-];
+function PaymentActions({ item }: { item: TicketProduct }) {
+  const paypalConfigured = Boolean(process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID);
 
-const workshops = [
-  {
-    title: "Workshop Hike & Fly / Cross Country",
-    author: "Moreno Parmesan",
-    description:
-      "Workshop premium di due giorni dedicato a hike & fly e cross country, tra teoria e pratica.",
-    cta: "Buy workshop",
-  },
-  {
-    title: "Workshop di chiodatura dal basso",
-    author: "Rolando Larcher",
-    description:
-      "Workshop premium dedicato alla chiodatura dal basso con Rolando Larcher.",
-    cta: "Buy workshop",
-  },
-];
+  return (
+    <div className="payment-rail mt-7">
+      <div className="payment-rail__header">
+        <div>
+          <p className="payment-rail__eyebrow">Checkout</p>
+          <p className="payment-rail__price">{item.priceLabel}</p>
+        </div>
+        <p className="payment-rail__note">Checkout pulito: Stripe come primaria, PayPal ufficiale come alternativa</p>
+      </div>
+      <div className="checkout-stack">
+        <div className="checkout-stack__primary">
+          <div className="checkout-stack__copy">
+            <p className="checkout-stack__title">Carta e wallet</p>
+            <p className="checkout-stack__subcopy">Vai al checkout Stripe e completa il pagamento in pochi passaggi.</p>
+          </div>
+          <Button href={item.stripeHref} className="checkout-stack__cta">
+            <span className="payment-action__label">Vai al checkout</span>
+            <span className="payment-action__meta">Carta, Apple Pay o metodi supportati da Stripe</span>
+          </Button>
+        </div>
+
+        <div className="checkout-stack__separator">
+          <span>oppure</span>
+        </div>
+
+        <div className="checkout-stack__secondary">
+          <div className="checkout-stack__copy">
+            <p className="checkout-stack__title">PayPal</p>
+            <p className="checkout-stack__subcopy">
+              {paypalConfigured
+                ? "Checkout PayPal ufficiale integrato nella scheda ticket."
+                : "Serve configurare le chiavi PayPal locali per vedere il bottone ufficiale."}
+            </p>
+          </div>
+          <PayPalCheckoutButton productId={item.id} disabled={!item.paypalEnabled} />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function TicketsPage() {
   return (
@@ -84,21 +81,21 @@ export default function TicketsPage() {
           </div>
 
           <div className="grid gap-5 lg:grid-cols-2">
-            {passes.map((item) => (
+            {PASSES.map((item) => (
               <article key={item.title} className="rounded-[1.75rem] border border-brand-ink/12 bg-white p-6 md:p-7">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-red">{item.eyebrow}</p>
                 <h3 className="mt-3 text-3xl font-semibold leading-tight text-brand-ink md:text-4xl">{item.title}</h3>
                 <p className="mt-4 max-w-[48ch] text-sm leading-6 text-brand-ink/74 md:text-base">{item.description}</p>
-                <div className="mt-6 space-y-3">
-                  {item.includes.map((point) => (
-                    <p key={point} className="border-l-4 border-brand-red pl-4 text-sm leading-6 text-brand-ink/76">
-                      {point}
-                    </p>
-                  ))}
-                </div>
-                <div className="mt-7 flex flex-wrap gap-3">
-                  <Button href="/contatti">{item.cta}</Button>
-                </div>
+                {item.includes ? (
+                  <div className="mt-6 space-y-3">
+                    {item.includes.map((point) => (
+                      <p key={point} className="border-l-4 border-brand-red pl-4 text-sm leading-6 text-brand-ink/76">
+                        {point}
+                      </p>
+                    ))}
+                  </div>
+                ) : null}
+                <PaymentActions item={item} />
               </article>
             ))}
           </div>
@@ -115,14 +112,12 @@ export default function TicketsPage() {
           </div>
 
           <div className="grid gap-5 lg:grid-cols-2">
-            {workshops.map((item) => (
+            {WORKSHOPS.map((item) => (
               <article key={item.title} className="rounded-[1.75rem] border border-brand-ink/12 bg-white p-6 md:p-7">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-red">{item.author}</p>
                 <h3 className="mt-3 text-2xl font-semibold leading-tight text-brand-ink md:text-3xl">{item.title}</h3>
                 <p className="mt-4 max-w-[48ch] text-sm leading-6 text-brand-ink/74 md:text-base">{item.description}</p>
-                <div className="mt-7 flex flex-wrap gap-3">
-                  <Button href="/contatti">{item.cta}</Button>
-                </div>
+                <PaymentActions item={item} />
               </article>
             ))}
           </div>

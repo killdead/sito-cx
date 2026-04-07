@@ -199,3 +199,271 @@ a {
 .cloud-blob-button:active,
 .cloud-badge-button:active {
 }
+
+.payment-rail {
+  border-radius: 1.5rem;
+  border: 1px solid rgba(23, 50, 77, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 248, 255, 0.95)),
+    radial-gradient(circle at top right, rgba(157, 192, 244, 0.18), transparent 34%);
+  padding: 1rem;
+  box-shadow: 0 10px 26px rgba(23, 50, 77, 0.06);
+}
+
+.payment-rail__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.payment-rail__eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(23, 50, 77, 0.58);
+}
+
+.payment-rail__note {
+  font-size: 0.76rem;
+  line-height: 1.4;
+  color: rgba(23, 50, 77, 0.54);
+}
+
+.payment-rail__price {
+  margin-top: 0.32rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-brand-ink);
+}
+
+.payment-rail__actions {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+}
+
+.checkout-stack {
+  margin-top: 0.95rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.checkout-stack__primary,
+.checkout-stack__secondary {
+  border-radius: 1.35rem;
+  border: 1px solid rgba(23, 50, 77, 0.1);
+  padding: 1rem;
+}
+
+.checkout-stack__primary {
+  background:
+    linear-gradient(160deg, rgba(234, 67, 54, 0.08), rgba(255, 227, 216, 0.3)),
+    rgba(255, 255, 255, 0.92);
+}
+
+.checkout-stack__secondary {
+  background:
+    linear-gradient(160deg, rgba(0, 112, 186, 0.06), rgba(0, 48, 135, 0.03)),
+    rgba(255, 255, 255, 0.94);
+}
+
+.checkout-stack__copy {
+  margin-bottom: 0.85rem;
+}
+
+.checkout-stack__title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-brand-ink);
+}
+
+.checkout-stack__subcopy {
+  margin-top: 0.38rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(23, 50, 77, 0.66);
+}
+
+.checkout-stack__cta {
+  width: 100%;
+  min-height: 4.55rem;
+  justify-content: space-between;
+  padding-inline: 1.1rem;
+  text-align: left;
+  box-shadow: 0 12px 22px rgba(234, 67, 54, 0.14);
+}
+
+.checkout-stack__separator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(23, 50, 77, 0.42);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.checkout-stack__separator::before,
+.checkout-stack__separator::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: rgba(23, 50, 77, 0.12);
+}
+
+.payment-action {
+  width: 100%;
+  min-height: 4.3rem;
+  justify-content: space-between;
+  padding-inline: 1.1rem;
+  text-align: left;
+}
+
+.payment-action__label,
+.payment-action__meta {
+  display: block;
+}
+
+.payment-action__label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.payment-action__meta {
+  margin-top: 0.28rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  opacity: 0.76;
+}
+
+.payment-action--card {
+  box-shadow: 0 8px 20px rgba(234, 67, 54, 0.18);
+}
+
+.payment-action--paypal {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(238, 249, 231, 0.56)),
+    linear-gradient(90deg, rgba(157, 192, 244, 0.14), rgba(255, 227, 216, 0.16));
+}
+
+.payment-action--paypalBox {
+  display: flex;
+  min-height: 4.3rem;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 1.3rem;
+  border: 1px solid rgba(23, 50, 77, 0.12);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 238, 0.96)),
+    radial-gradient(circle at top right, rgba(157, 192, 244, 0.18), transparent 42%);
+  padding: 0.9rem;
+}
+
+.payment-action__stack {
+  margin-bottom: 0.75rem;
+}
+
+.paypal-shell {
+  min-height: 52px;
+}
+
+.paypal-shell--error {
+  border-radius: 1rem;
+  border: 1px solid rgba(234, 67, 54, 0.18);
+  background: rgba(255, 227, 216, 0.28);
+  padding: 0.75rem;
+}
+
+.paypal-shell--pending {
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+}
+
+.paypal-fallback-button {
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 48, 135, 0.08);
+  background: linear-gradient(180deg, #ffd34d 0%, #ffc439 100%);
+  padding: 0.85rem 1rem 0.85rem 1.15rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 10px 18px rgba(0, 48, 135, 0.08);
+  cursor: not-allowed;
+}
+
+.paypal-fallback-button__brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.05rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.paypal-fallback-button__paypal {
+  color: #003087;
+}
+
+.paypal-fallback-button__pal {
+  color: #009cde;
+}
+
+.paypal-fallback-button__text {
+  flex: 1;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(23, 50, 77, 0.84);
+}
+
+.paypal-fallback-button__state {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 0.35rem 0.65rem;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 48, 135, 0.86);
+}
+
+.paypal-shell__message {
+  font-size: 0.74rem;
+  line-height: 1.45;
+  color: rgba(23, 50, 77, 0.64);
+}
+
+@media (min-width: 640px) {
+  .checkout-stack {
+    grid-template-columns: minmax(0, 1.1fr) auto minmax(0, 0.9fr);
+    align-items: stretch;
+  }
+
+  .checkout-stack__separator {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.65rem;
+  }
+
+  .checkout-stack__separator::before,
+  .checkout-stack__separator::after {
+    width: 1px;
+    height: 100%;
+  }
+}

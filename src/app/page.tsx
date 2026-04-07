@@ -8,7 +8,7 @@ const proofItems = [
 ];
 
 const audienceItems = [
-  "Per chi si muove tra roccia, fettucce ed aria.",
+  "Per chi si muove tra roccia, fettucce e termiche.",
   "Per chi cerca lo spot, la situazione e il divertimento.",
   "Per chi preferisce fare piuttosto che stare a guardare.",
 ];

@@ -24,6 +24,7 @@ export type TicketProduct = {
   priceLabel: string;
   checkoutEnabled: boolean;
   paypalFallbackEnabled: boolean;
+  stripePaymentLink?: string;
 };
 
 function createProduct(
@@ -42,13 +43,14 @@ function createProduct(
     amountCents: config.amountCents,
     priceLabel: formatPrice(config.amountCents),
     checkoutEnabled: config.amountCents !== null,
+    stripePaymentLink: config.stripePaymentLink,
   };
 }
 
 export const PASSES: TicketProduct[] = [
   createProduct({
     id: "full-pass",
-    title: "Full Pass",
+    title: "Full Gaso Pass",
     eyebrow: "Festival ticket",
     description:
       "Il pass piu completo del weekend. Entri in tutto il festival e resti coperto anche su attivita, workshop e camping.",
@@ -65,24 +67,27 @@ export const PASSES: TicketProduct[] = [
     amountCents: 5000,
     currency: "eur",
     paypalFallbackEnabled: true,
+    stripePaymentLink: "https://buy.stripe.com/aFaaEQc0n29paWC4safAc00",
   }),
   createProduct({
     id: "festival-pass",
-    title: "Festival Pass",
+    title: "Gaso Light Pass",
     eyebrow: "Festival ticket",
     description:
-      "Il pass base per vivere il festival, entrare nell'atmosfera del weekend e partecipare alla parte generale dell'evento.",
-    shortDescription: "Ingresso festival e programma generale.",
+      "Il pass per vivere quasi tutto il festival: include street boulder, volo, workshop, attivita, camping e programma generale. Restano fuori solo le highline.",
+    shortDescription: "Quasi tutto il festival, tranne le highline.",
     includes: [
-      "Ingresso festival",
-      "Serate e programma generale",
-      "Area community",
-      "Camping escluso",
-      "Workshop esclusi",
+      "Street Boulder",
+      "Parapendio",
+      "Workshop",
+      "Attivita",
+      "Camping",
+      "Highline escluse",
     ],
     amountCents: 3000,
     currency: "eur",
     paypalFallbackEnabled: true,
+    stripePaymentLink: "https://buy.stripe.com/9B6fZac0neWb9Syf6OfAc01",
   }),
 ];
 
@@ -93,8 +98,8 @@ export const WORKSHOPS: TicketProduct[] = [
     author: "Moreno Parmesan",
     eyebrow: "Workshop premium",
     description:
-      "Workshop premium dedicato a hike & fly e cross country, pensato per chi vuole lavorare davvero su tecnica e lettura del volo.",
-    shortDescription: "Workshop avanzato con Moreno Parmesan.",
+      "Due giorni di workshop con Moreno Parmesan per entrare davvero nel mondo hike & fly e cross country, tra visione del volo, scelte in aria e approccio alla disciplina.",
+    shortDescription: "Due giorni con Moreno Parmesan tra hike & fly e cross country.",
     amountCents: 15000,
     currency: "eur",
     paypalFallbackEnabled: true,
@@ -105,8 +110,8 @@ export const WORKSHOPS: TicketProduct[] = [
     author: "Rolando Larcher",
     eyebrow: "Workshop premium",
     description:
-      "Workshop premium con Rolando Larcher dedicato alla chiodatura dal basso, tra tecnica, metodo e pratica sul campo.",
-    shortDescription: "Workshop tecnico con Rolando Larcher.",
+      "Una giornata con Rolando Larcher dedicata alla chiodatura dal basso, pensata per chi vuole capire meglio come nasce una linea e come ci si muove in parete con criterio.",
+    shortDescription: "Una giornata con Rolando Larcher sulla chiodatura dal basso.",
     amountCents: 15000,
     currency: "eur",
     paypalFallbackEnabled: true,

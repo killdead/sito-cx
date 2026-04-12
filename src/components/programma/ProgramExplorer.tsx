@@ -48,10 +48,13 @@ export function ProgramExplorer() {
 
   return (
     <div className="space-y-8">
-      <div className="surface-card rounded-[2rem] p-5 md:p-6">
+      <div className="programma-filter-card rounded-[2rem] p-5 md:p-6">
         <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-red">Giorni</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-red">Filtra il weekend</p>
+            <p className="mt-2 max-w-xl text-sm leading-6 text-brand-ink/62">
+              Parti dal giorno, poi stringi per disciplina o punto se vuoi leggere solo quello che ti interessa davvero.
+            </p>
             <div className="mt-3 flex flex-wrap gap-2">
               <button
                 type="button"
@@ -119,7 +122,7 @@ export function ProgramExplorer() {
         <div className="space-y-8">
           {groupedItems.map((group) => (
             <section key={group.day} className="space-y-4">
-              <div className="flex items-end justify-between border-b border-brand-ink/12 pb-3">
+              <div className="programma-day-header">
                 <h2 className="font-display text-4xl uppercase leading-none text-brand-ink md:text-5xl">
                   {group.day}
                 </h2>
@@ -129,21 +132,28 @@ export function ProgramExplorer() {
               </div>
 
               <div className="grid gap-3">
-                {group.items.map((item) => (
+                {group.items.map((item) => {
+                  const isTimeRange = item.time.includes("-");
+
+                  return (
                   <article
                     key={`${item.day}-${item.time}-${item.title}`}
-                    className="surface-card rounded-[1.5rem] px-4 py-4 md:px-5"
+                    className="programma-item-card rounded-[1.5rem] px-4 py-4 md:px-5"
                   >
-                    <div className="grid gap-3 md:grid-cols-[160px_1fr_auto] md:items-center md:gap-5">
-                      <div>
-                        <p className="text-2xl font-semibold leading-none text-brand-red">{item.time}</p>
-                        <p className="mt-2 text-xs font-semibold uppercase tracking-[0.1em] text-brand-ink/54">
+                    <div className="grid gap-3 md:grid-cols-[190px_1fr_auto] md:items-center md:gap-5">
+                      <div className="programma-item-card__meta">
+                        <p
+                          className={`programma-item-card__time${isTimeRange ? " programma-item-card__time--range" : ""}`}
+                        >
+                          {item.time}
+                        </p>
+                        <p className="programma-item-card__location">
                           {item.location}
                         </p>
                       </div>
 
-                      <div>
-                        <h3 className="text-lg font-semibold text-brand-ink md:text-xl">{item.title}</h3>
+                      <div className="programma-item-card__content">
+                        <h3 className="programma-item-card__title">{item.title}</h3>
                       </div>
 
                       <div className="flex flex-wrap gap-2 md:justify-end">
@@ -152,7 +162,8 @@ export function ProgramExplorer() {
                       </div>
                     </div>
                   </article>
-                ))}
+                  );
+                })}
               </div>
             </section>
           ))}

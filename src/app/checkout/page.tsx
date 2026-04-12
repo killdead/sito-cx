@@ -57,6 +57,7 @@ export default async function CheckoutPage({
           productIncludes={product.includes}
           priceLabel={product.priceLabel}
           paypalFallbackEnabled={product.paypalFallbackEnabled}
+          stripePaymentLink={product.stripePaymentLink}
         />
         <p className="mt-6 text-center text-sm text-brand-ink/58">
           Hai cambiato idea? <Link className="font-semibold text-brand-red" href="/tickets">Torna alla lista ticket</Link>

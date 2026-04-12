@@ -39,7 +39,6 @@
 - `10:00 - 18:30` Workshop Hike & Fly / Cross Country - Moreno Parmesan — Volo
 - `10:00 - 13:00` Gara Speedline — Trentinara
 - `10:30` Inizio Street Boulder - Giungano — Giungano
-- `11:00 - 12:30` Workshop Nodi — Highline area
 - `14:00 - 18:00` Arrampicata bambini — Climbing area
 - `16:00` Workshop di avvicinamento al parapendio — Volo
 - `17:00` Premiazione "Miglior volo del weekend" — Main stage

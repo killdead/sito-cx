@@ -4,7 +4,11 @@ export const MEDIA_SECTIONS: Record<string, string[]> = {
     "Highline.jpg",
     "Rescue highline.jpg",
   ],
-  fly: ["fly- avvicinamento al parapendio.jpeg"],
+  fly: [
+    "fly- avvicinamento al parapendio.jpeg",
+    "hike-and-fly.jpeg",
+    "gara-cx.jpeg",
+  ],
   climbing: [
     "Arrampicata in falesia.jpeg",
     "Climbing attività.jpg",

@@ -17,15 +17,13 @@ export default function MediaPage() {
   return (
     <main className="pb-12">
       <section className="section-space pt-8">
-        <div className="container-shell grid items-end gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-brand-red">Media</p>
-            <h1 className="mt-3 max-w-[10ch] font-display text-5xl uppercase leading-[0.9] text-brand-ink md:text-7xl lg:text-8xl">
-              Carica foto
-            </h1>
+        <div className="container-shell page-head">
+          <div className="page-head__intro">
+            <p className="page-head__eyebrow">Media</p>
+            <h1 className="page-head__title">Carica foto</h1>
           </div>
-          <div>
-            <p className="max-w-2xl text-base leading-7 text-brand-ink/76 md:text-lg">
+          <div className="page-head__side">
+            <p className="page-head__description">
               Su GitHub Pages questa sezione e solo consultabile: le immagini sono pubblicate dal repository e non possono essere caricate online tramite API o filesystem.
             </p>
           </div>

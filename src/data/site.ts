@@ -6,7 +6,6 @@ export const NAV_ITEMS = [
   { href: "/programma", label: "Programma" },
   { href: "/info", label: "Info" },
   { href: "/alloggi", label: "Alloggi" },
-  { href: "/partner", label: "Partner" },
   { href: "/contatti", label: "Contatti" },
 ];
 
@@ -23,13 +22,6 @@ export const QUICK_ACTIONS = [
     description: "Highline, volo, arrampicata e format pensati per livelli ed energie diverse.",
     href: "/attivita",
     cta: "Esplora le discipline",
-    placeholder: "[ILLUSTRAZIONE_OMINO_X]",
-  },
-  {
-    title: "Partner",
-    description: "Costruisci visibilita vera dentro una community outdoor attiva e riconoscibile.",
-    href: "/partner",
-    cta: "Diventa partner",
     placeholder: "[ILLUSTRAZIONE_OMINO_X]",
   },
 ];
@@ -87,7 +79,7 @@ export const FAQ_ITEMS = [
   },
   {
     question: "Come posso diventare partner o volontario?",
-    answer: "Dalle pagine Partner e Contatti puoi inviare una richiesta diretta e ricevere materiali di presentazione.",
+    answer: "Scrivi direttamente dai contatti del festival per collaborazioni, volontariato o richieste di partecipazione al progetto.",
   },
 ];
 

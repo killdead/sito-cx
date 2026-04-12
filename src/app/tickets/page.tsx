@@ -1,31 +1,25 @@
 import { Button } from "@/components/ui/Button";
 import { PASSES, WORKSHOPS } from "@/lib/tickets";
 
-function getTicketHref(productId: string, enabled: boolean) {
-  return enabled ? `/checkout?product=${productId}` : "/contatti";
+function getTicketHref(stripePaymentLink?: string) {
+  return stripePaymentLink || "/contatti";
 }
 
 export default function TicketsPage() {
   return (
     <main className="pb-12">
       <section className="section-space pt-8">
-        <div className="container-shell grid items-end gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-brand-red">Tickets</p>
-            <h1 className="mt-3 max-w-[10ch] font-display text-5xl uppercase leading-[0.9] text-brand-ink md:text-7xl lg:text-8xl">
-              Scegli il tuo accesso
-            </h1>
-          </div>
-          <div>
-            <p className="max-w-2xl text-base leading-7 text-brand-ink/76 md:text-lg">
-              Prima scegli il ticket giusto. Il pagamento si apre dopo, in una pagina separata, con wallet veloci, carta e PayPal.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Button href="/checkout?product=full-pass">Compra Full Pass</Button>
-              <Button href="/programma" variant="secondary">
-                Guarda programma
-              </Button>
-            </div>
+        <div className="container-shell ticket-hero">
+          <p className="ticket-hero__eyebrow">Tickets</p>
+          <h1 className="ticket-hero__title">Scegli il pass giusto</h1>
+          <p className="ticket-hero__text">
+            <strong>Full Gaso Pass</strong> include tutto. <strong>Gaso Light Pass</strong> include quasi tutto, con una sola esclusione: le highline.
+          </p>
+          <div className="ticket-hero__actions">
+            <Button href={getTicketHref(PASSES[0]?.stripePaymentLink)}>Compra Full Gaso Pass</Button>
+            <Button href="/programma" variant="secondary">
+              Guarda programma
+            </Button>
           </div>
         </div>
       </section>
@@ -39,32 +33,34 @@ export default function TicketsPage() {
             </h2>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-2">
+          <div className="ticket-pass-grid">
             {PASSES.map((item) => (
-              <article key={item.title} className="flex h-full flex-col rounded-[1.75rem] border border-brand-ink/12 bg-white p-6 md:p-7">
-                <div className="flex items-start justify-between gap-4">
+              <article key={item.title} className="ticket-pass-card">
+                <div className="ticket-pass-card__top">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-red">{item.eyebrow}</p>
-                    <h3 className="mt-3 text-3xl font-semibold leading-tight text-brand-ink md:text-4xl">{item.title}</h3>
+                    <p className="ticket-pass-card__eyebrow">{item.eyebrow}</p>
+                    <h3 className="ticket-pass-card__title">{item.title}</h3>
+                    <p className="ticket-pass-card__summary">{item.shortDescription ?? item.description}</p>
                   </div>
-                  <div className="text-right">
-                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-brand-ink/48">Prezzo</p>
-                    <p className="mt-1 text-2xl font-semibold text-brand-ink">{item.priceLabel}</p>
+                  <div className="ticket-pass-card__price-wrap">
+                    <p className="ticket-pass-card__price-label">Prezzo</p>
+                    <p className="ticket-pass-card__price">{item.priceLabel}</p>
                   </div>
                 </div>
-                <p className="mt-4 text-base leading-7 text-brand-ink/74">{item.shortDescription ?? item.description}</p>
+
                 {item.includes ? (
-                  <div className="mt-6 space-y-3">
-                    {item.includes.map((point) => (
-                      <p key={point} className="border-l-4 border-brand-red pl-4 text-sm leading-6 text-brand-ink/76">
+                  <div className="ticket-pass-card__list">
+                    {item.includes.slice(0, 5).map((point) => (
+                      <p key={point} className="ticket-pass-card__list-item">
                         {point}
                       </p>
                     ))}
                   </div>
                 ) : null}
-                <div className="mt-7 flex flex-wrap gap-3">
-                  <Button href={getTicketHref(item.id, item.checkoutEnabled)}>
-                    {item.checkoutEnabled ? `Compra ${item.title}` : "Richiedi info"}
+
+                <div className="ticket-pass-card__footer">
+                  <Button href={getTicketHref(item.stripePaymentLink)} className="w-full justify-center">
+                    {item.stripePaymentLink ? `Compra ${item.title}` : "Richiedi info"}
                   </Button>
                 </div>
               </article>
@@ -82,25 +78,21 @@ export default function TicketsPage() {
             </h2>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-2">
+          <div className="ticket-workshop-grid">
             {WORKSHOPS.map((item) => (
-              <article key={item.title} className="flex h-full flex-col rounded-[1.75rem] border border-brand-ink/12 bg-white p-6 md:p-7">
-                <div className="flex items-start justify-between gap-4">
+              <article key={item.title} className="ticket-workshop-card">
+                <div className="ticket-workshop-card__top">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-red">{item.author}</p>
-                    <h3 className="mt-3 text-2xl font-semibold leading-tight text-brand-ink md:text-3xl">{item.title}</h3>
+                    <p className="ticket-workshop-card__author">{item.author}</p>
+                    <h3 className="ticket-workshop-card__title">{item.title}</h3>
                   </div>
-                  <div className="text-right">
-                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-brand-ink/48">Prezzo</p>
-                    <p className="mt-1 text-2xl font-semibold text-brand-ink">{item.priceLabel}</p>
+                  <div className="ticket-workshop-card__price-wrap">
+                    <p className="ticket-workshop-card__price-label">Prezzo</p>
+                    <p className="ticket-workshop-card__price">{item.priceLabel}</p>
                   </div>
                 </div>
-                <p className="mt-4 text-base leading-7 text-brand-ink/74">{item.shortDescription ?? item.description}</p>
-                <div className="mt-7 flex flex-wrap gap-3">
-                  <Button href={getTicketHref(item.id, item.checkoutEnabled)}>
-                    {item.checkoutEnabled ? "Prenota workshop" : "Richiedi info"}
-                  </Button>
-                </div>
+                <p className="ticket-workshop-card__summary">{item.shortDescription ?? item.description}</p>
+                <p className="ticket-workshop-card__note">Dettagli e modalita di accesso ai workshop verranno comunicati separatamente.</p>
               </article>
             ))}
           </div>

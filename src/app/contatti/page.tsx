@@ -8,7 +8,6 @@ const contactItems = [
 
 const directPaths = [
   { title: "Tickets", text: "Per vedere i pass festival e i workshop acquistabili separatamente.", href: "/tickets", cta: "Apri tickets" },
-  { title: "Partner", text: "Per brand, sponsor e collaborazioni legate al progetto.", href: "/partner", cta: "Vai a partner" },
   { title: "Info utili", text: "Per arrivare, dormire e orientarti nel modo più semplice.", href: "/info", cta: "Apri info" },
 ];
 
@@ -27,8 +26,8 @@ export default function ContactsPage() {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button href="/tickets">Buy ticket</Button>
-              <Button href="/partner" variant="secondary">
-                Diventa partner
+              <Button href="mailto:cilentoxtreme@gmail.com" variant="secondary">
+                Scrivi al team
               </Button>
             </div>
           </div>

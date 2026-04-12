@@ -266,14 +266,6 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   },
   {
     day: "Domenica",
-    time: "11:00 - 12:30",
-    title: "Workshop Nodi",
-    type: "Workshop",
-    category: "Workshop",
-    location: "Highline area",
-  },
-  {
-    day: "Domenica",
     time: "14:00 - 18:00",
     title: "Arrampicata bambini",
     type: "Kids",

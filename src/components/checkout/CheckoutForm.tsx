@@ -13,6 +13,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { PayPalFallbackButton } from "@/components/checkout/PayPalFallbackButton";
+import { Button } from "@/components/ui/Button";
 
 const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
   ? loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
@@ -27,6 +28,7 @@ type CheckoutFormProps = {
   productIncludes?: string[];
   priceLabel: string;
   paypalFallbackEnabled: boolean;
+  stripePaymentLink?: string;
 };
 
 type PaymentState = "idle" | "loading" | "success" | "error";
@@ -70,6 +72,7 @@ function EmbeddedCheckout({
   productIncludes,
   priceLabel,
   paypalFallbackEnabled,
+  stripePaymentLink,
 }: Omit<CheckoutFormProps, "currency">) {
   const stripe = useStripe();
   const elements = useElements();
@@ -155,6 +158,20 @@ function EmbeddedCheckout({
           </div>
           <p className="checkout-product__price">{priceLabel}</p>
         </div>
+        <div className="checkout-trust">
+          <div className="checkout-trust__item">
+            <span className="checkout-trust__label">Pagamento</span>
+            <span className="checkout-trust__value">Sicuro con Stripe</span>
+          </div>
+          <div className="checkout-trust__item">
+            <span className="checkout-trust__label">Conferma</span>
+            <span className="checkout-trust__value">Subito dopo il pagamento</span>
+          </div>
+          <div className="checkout-trust__item">
+            <span className="checkout-trust__label">Tempo medio</span>
+            <span className="checkout-trust__value">Meno di 1 minuto</span>
+          </div>
+        </div>
         {productIncludes?.length ? (
           <div className="checkout-highlights">
             {productIncludes.slice(0, 4).map((item) => (
@@ -167,7 +184,14 @@ function EmbeddedCheckout({
       </div>
 
       <div className="checkout-card">
-        <div className="checkout-section">
+        <div className="checkout-section checkout-panel">
+          <div className="checkout-panel__header">
+            <div>
+              <p className="checkout-panel__eyebrow">Metodi rapidi</p>
+              <h2 className="checkout-panel__title">Paga in un attimo</h2>
+            </div>
+            <p className="checkout-panel__note">Apple Pay, Google Pay, Link e wallet supportati da Stripe.</p>
+          </div>
           <ExpressCheckoutElement
             options={{
               buttonHeight: 52,
@@ -182,7 +206,14 @@ function EmbeddedCheckout({
           <span>oppure paga con carta</span>
         </div>
 
-        <form className="checkout-form" onSubmit={handleSubmit}>
+        <form className="checkout-form checkout-panel" onSubmit={handleSubmit}>
+          <div className="checkout-panel__header">
+            <div>
+              <p className="checkout-panel__eyebrow">Carta</p>
+              <h2 className="checkout-panel__title">Inserisci i dati di pagamento</h2>
+            </div>
+            <p className="checkout-panel__note">Usa email e carta se preferisci un pagamento classico.</p>
+          </div>
           <div className="checkout-field">
             <label className="checkout-label">Email</label>
             <LinkAuthenticationElement
@@ -213,7 +244,17 @@ function EmbeddedCheckout({
           >
             {paymentState === "loading" ? "Pagamento in corso…" : "Completa pagamento"}
           </button>
+          <p className="checkout-helper">I dati della carta vengono gestiti direttamente da Stripe in modo sicuro.</p>
         </form>
+
+        {stripePaymentLink ? (
+          <div className="checkout-alt-link">
+            <p className="checkout-helper">Se preferisci, puoi aprire anche il checkout Stripe esterno.</p>
+            <Button href={stripePaymentLink} variant="secondary" className="w-full justify-center">
+              Apri checkout Stripe
+            </Button>
+          </div>
+        ) : null}
 
         {showPaypalFallback ? (
           <div className="checkout-paypal-fallback">
@@ -248,6 +289,7 @@ export function CheckoutForm({
   productIncludes,
   priceLabel,
   paypalFallbackEnabled,
+  stripePaymentLink,
 }: CheckoutFormProps) {
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [error, setError] = useState<string>("");
@@ -379,6 +421,7 @@ export function CheckoutForm({
         productIncludes={productIncludes}
         priceLabel={priceLabel}
         paypalFallbackEnabled={paypalFallbackEnabled}
+        stripePaymentLink={stripePaymentLink}
       />
     </Elements>
   );

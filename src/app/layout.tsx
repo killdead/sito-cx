@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "CilentoXtreme",
   description:
     "Festival outdoor nel cuore del Cilento tra highline, volo, arrampicata, camping e community.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({

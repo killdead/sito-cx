@@ -100,19 +100,7 @@ export const WORKSHOPS: TicketProduct[] = [
     description:
       "Due giorni di workshop con Moreno Parmesan per entrare davvero nel mondo hike & fly e cross country, tra visione del volo, scelte in aria e approccio alla disciplina.",
     shortDescription: "Due giorni con Moreno Parmesan tra hike & fly e cross country.",
-    amountCents: 15000,
-    currency: "eur",
-    paypalFallbackEnabled: true,
-  }),
-  createProduct({
-    id: "workshop-chiodatura",
-    title: "Workshop di chiodatura dal basso",
-    author: "Rolando Larcher",
-    eyebrow: "Workshop premium",
-    description:
-      "Una giornata con Rolando Larcher dedicata alla chiodatura dal basso, pensata per chi vuole capire meglio come nasce una linea e come ci si muove in parete con criterio.",
-    shortDescription: "Una giornata con Rolando Larcher sulla chiodatura dal basso.",
-    amountCents: 15000,
+    amountCents: 20000,
     currency: "eur",
     paypalFallbackEnabled: true,
   }),

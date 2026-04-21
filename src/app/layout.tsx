@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { MobileStickyCTA } from "@/components/layout/MobileStickyCTA";
@@ -27,6 +28,7 @@ export default function RootLayout({
         {children}
         <SiteFooter />
         <MobileStickyCTA />
+        <Analytics />
       </body>
     </html>
   );

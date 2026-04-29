@@ -110,7 +110,7 @@ export default function TicketsPage() {
                 <div className="ticket-workshop-card__footer">
                   <Button href={getTicketHref(item.stripePaymentLink)} className="w-full justify-center">
                     {item.id === "streetboulder-registration"
-                      ? "Ticket Streetboulder"
+                      ? "Compra Streetboulder Pass"
                       : item.stripePaymentLink
                         ? `Compra ${item.title}`
                         : "Richiedi info"}

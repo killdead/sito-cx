@@ -92,6 +92,19 @@ export default function TicketsPage() {
                   </div>
                 </div>
                 <p className="ticket-workshop-card__summary">{item.shortDescription ?? item.description}</p>
+
+                {item.includes ? (
+                  <div className="ticket-workshop-card__list">
+                    {item.includes.map((point) => (
+                      <p key={point} className="ticket-workshop-card__list-item">
+                        {point}
+                      </p>
+                    ))}
+                  </div>
+                ) : null}
+
+                <p className="ticket-workshop-card__description">Per aiutarci nella preparazione della gara ti chiediamo anche di compilare il Form qui sotto</p>
+
                 <div className="ticket-workshop-card__footer">
                   <Button href={getTicketHref(item.stripePaymentLink)} className="w-full justify-center">
                     {item.stripePaymentLink ? `Compra ${item.title}` : "Richiedi info"}

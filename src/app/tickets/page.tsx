@@ -109,7 +109,11 @@ export default function TicketsPage() {
 
                 <div className="ticket-workshop-card__footer">
                   <Button href={getTicketHref(item.stripePaymentLink)} className="w-full justify-center">
-                    {item.stripePaymentLink ? `Compra ${item.title}` : "Richiedi info"}
+                    {item.id === "streetboulder-registration"
+                      ? "Ticket Streetboulder"
+                      : item.stripePaymentLink
+                        ? `Compra ${item.title}`
+                        : "Richiedi info"}
                   </Button>
                   {item.id === "streetboulder-registration" && (
                     <Button href="https://docs.google.com/forms/d/e/1FAIpQLSfeiblg70eS6ozCOaw2dg9qK_WBZo0CBOxBdyi9A5n2WipR3g/viewform?usp=header" variant="secondary" className="w-full justify-center">

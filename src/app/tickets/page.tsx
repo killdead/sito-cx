@@ -91,7 +91,9 @@ export default function TicketsPage() {
                     <p className="ticket-workshop-card__price">{item.priceLabel}</p>
                   </div>
                 </div>
-                <p className="ticket-workshop-card__summary">{item.shortDescription ?? item.description}</p>
+                {!item.includes && (
+                  <p className="ticket-workshop-card__summary">{item.shortDescription ?? item.description}</p>
+                )}
 
                 {item.includes ? (
                   <div className="ticket-workshop-card__list">

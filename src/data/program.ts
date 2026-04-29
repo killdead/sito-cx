@@ -179,7 +179,7 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   {
     day: "Sabato",
     time: "20:00",
-    title: "Spettacolo",
+    title: "Spettacolo circense",
     type: "Show",
     category: "Spettacolo",
     location: "Main stage",

@@ -97,7 +97,7 @@ export const WORKSHOPS: TicketProduct[] = [
     title: "Iscrizione Streetboulder",
     eyebrow: "Gara registrazione",
     description:
-      "Iscrizione alla gara di StreetBoulder del weekend. Include l'accesso alla competizione e alle premiazioni.",
+      "Iscriviti solamente alla gara di Streetboulder di Sabato 22 Maggio e partecipa alla competizione che è il cuore del Cilentoxtreme.",
     shortDescription: "Iscrizione alla gara di StreetBoulder.",
     amountCents: 2000,
     currency: "eur",

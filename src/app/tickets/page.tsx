@@ -92,7 +92,6 @@ export default function TicketsPage() {
                   </div>
                 </div>
                 <p className="ticket-workshop-card__summary">{item.shortDescription ?? item.description}</p>
-                <p className="ticket-workshop-card__note">Iscriviti alla competizione e mettiti alla prova con i migliori climber del Cilento.</p>
                 <div className="ticket-workshop-card__footer">
                   <Button href={getTicketHref(item.stripePaymentLink)} className="w-full justify-center">
                     {item.stripePaymentLink ? `Compra ${item.title}` : "Richiedi info"}

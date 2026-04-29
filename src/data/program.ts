@@ -130,6 +130,14 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   },
   {
     day: "Sabato",
+    time: "08:30",
+    title: "Yoga",
+    type: "Workshop",
+    category: "Attivita",
+    location: "Campeggio",
+  },
+  {
+    day: "Sabato",
     time: "09:00",
     title: "Apertura decollo parapendio",
     type: "Volo",
@@ -207,6 +215,14 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
     type: "Highline",
     category: "Attivita",
     location: "Trentinara",
+  },
+  {
+    day: "Domenica",
+    time: "08:30",
+    title: "Yoga",
+    type: "Workshop",
+    category: "Attivita",
+    location: "Campeggio",
   },
   {
     day: "Domenica",

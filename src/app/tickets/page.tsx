@@ -72,9 +72,9 @@ export default function TicketsPage() {
       <section className="bg-white/56 px-3 py-8 md:px-6">
         <div className="mx-auto max-w-[1240px]">
           <div className="mb-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-red">Gara competizione</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-red">Streetboulder</p>
             <h2 className="mt-2 font-display text-4xl uppercase leading-[0.92] text-brand-ink md:text-6xl">
-              Streetboulder
+              Iscriviti alla gara
             </h2>
           </div>
 

@@ -72,9 +72,9 @@ export default function TicketsPage() {
       <section className="bg-white/56 px-3 py-8 md:px-6">
         <div className="mx-auto max-w-[1240px]">
           <div className="mb-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-red">Workshop premium</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-red">Gara competizione</p>
             <h2 className="mt-2 font-display text-4xl uppercase leading-[0.92] text-brand-ink md:text-6xl">
-              Add-on separati
+              Streetboulder
             </h2>
           </div>
 
@@ -92,7 +92,7 @@ export default function TicketsPage() {
                   </div>
                 </div>
                 <p className="ticket-workshop-card__summary">{item.shortDescription ?? item.description}</p>
-                <p className="ticket-workshop-card__note">Dettagli e modalita di accesso ai workshop verranno comunicati separatamente.</p>
+                <p className="ticket-workshop-card__note">Iscriviti alla competizione e mettiti alla prova con i migliori climber del Cilento.</p>
                 <div className="ticket-workshop-card__footer">
                   <Button href={getTicketHref(item.stripePaymentLink)} className="w-full justify-center">
                     {item.stripePaymentLink ? `Compra ${item.title}` : "Richiedi info"}

@@ -93,14 +93,13 @@ export const PASSES: TicketProduct[] = [
 
 export const WORKSHOPS: TicketProduct[] = [
   createProduct({
-    id: "workshop-hike-fly",
-    title: "Workshop Hike & Fly / Cross Country",
-    author: "Moreno Parmesan",
-    eyebrow: "Workshop premium",
+    id: "streetboulder-registration",
+    title: "Iscrizione Streetboulder",
+    eyebrow: "Gara registrazione",
     description:
-      "Due giorni di workshop con Moreno Parmesan per entrare davvero nel mondo hike & fly e cross country, tra visione del volo, scelte in aria e approccio alla disciplina.",
-    shortDescription: "Due giorni con Moreno Parmesan tra hike & fly e cross country.",
-    amountCents: 20000,
+      "Iscrizione alla gara di StreetBoulder del weekend. Include l'accesso alla competizione e alle premiazioni.",
+    shortDescription: "Iscrizione alla gara di StreetBoulder.",
+    amountCents: 2000,
     currency: "eur",
     paypalFallbackEnabled: true,
   }),

@@ -93,6 +93,11 @@ export default function TicketsPage() {
                 </div>
                 <p className="ticket-workshop-card__summary">{item.shortDescription ?? item.description}</p>
                 <p className="ticket-workshop-card__note">Dettagli e modalita di accesso ai workshop verranno comunicati separatamente.</p>
+                <div className="ticket-workshop-card__footer">
+                  <Button href={getTicketHref(item.stripePaymentLink)} className="w-full justify-center">
+                    {item.stripePaymentLink ? `Compra ${item.title}` : "Richiedi info"}
+                  </Button>
+                </div>
               </article>
             ))}
           </div>

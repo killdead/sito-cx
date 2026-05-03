@@ -234,27 +234,11 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   },
   {
     day: "Domenica",
-    time: "10:00",
-    title: "Apertura iscrizioni Street Boulder - Giungano",
-    type: "Climbing",
-    category: "Competizione",
-    location: "Giungano",
-  },
-  {
-    day: "Domenica",
     time: "10:00 - 18:30",
     title: "Workshop Hike & Fly / Cross Country - Moreno Parmesan",
     type: "Workshop",
     category: "Workshop",
     location: "Volo",
-  },
-  {
-    day: "Domenica",
-    time: "10:30",
-    title: "Inizio Street Boulder - Giungano",
-    type: "Climbing",
-    category: "Competizione",
-    location: "Giungano",
   },
   {
     day: "Domenica",

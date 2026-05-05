@@ -5,6 +5,7 @@ export const NAV_ITEMS = [
   { href: "/attivita", label: "Attivita" },
   { href: "/programma", label: "Programma" },
   { href: "/info", label: "Info" },
+  { href: "/chi-siamo", label: "Chi Siamo" },
   { href: "/alloggi", label: "Alloggi" },
   { href: "/contatti", label: "Contatti" },
 ];

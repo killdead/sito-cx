@@ -70,7 +70,7 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
     title: "Workshop di chiodatura dal basso - Rolando Larcher",
     type: "Workshop",
     category: "Workshop",
-    location: "Climbing area Giungano",
+    location: "Climbing area",
   },
   {
     day: "Venerdi",
@@ -83,7 +83,7 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   {
     day: "Venerdi",
     time: "14:00 - 18:00",
-    title: "Arrampicata bambini",
+    title: "Climbing 4 Kids - Arrampicata per bambini e ragazzi",
     type: "Kids",
     category: "Attivita",
     location: "Climbing area",
@@ -163,7 +163,7 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   {
     day: "Sabato",
     time: "09:30",
-    title: "Iscrizioni gara di StreetBoulder - Trentinara",
+    title: "Iscrizioni gara di Streetboulder - Trentinara",
     type: "Climbing",
     category: "Competizione",
     location: "Trentinara",
@@ -195,7 +195,7 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   {
     day: "Sabato",
     time: "10:30",
-    title: "Inizio Street Boulder - Trentinara",
+    title: "Inizio Streetboulder - Trentinara",
     type: "Climbing",
     category: "Competizione",
     location: "Trentinara",
@@ -275,7 +275,7 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   {
     day: "Domenica",
     time: "10:00 - 12:00",
-    title: "Workshop Tecnica di Arrampicata - A cura di IAMAS",
+    title: "Workshop Tecnica di Arrampicata - A cura di IAMAS · Metodo Caruso®",
     type: "Workshop",
     category: "Workshop",
     location: "Campeggio",
@@ -365,7 +365,6 @@ export const PROGRAM_LOCATIONS = [
   "Falesia",
   "Campeggio",
   "Climbing area",
-  "Climbing area Giungano",
   "Falesia Giungano",
   "Highline area",
   "Main stage",

@@ -8,6 +8,7 @@ export type Partner = {
 export type PartnerCategory = {
   id: string;
   title: string;
+  description?: string;
   partners: Partner[];
 };
 

@@ -106,7 +106,7 @@ export const WORKSHOPS: TicketProduct[] = [
     amountCents: 2000,
     currency: "eur",
     paypalFallbackEnabled: true,
-    stripePaymentLink: "https://buy.stripe.com/4gMcMY3tR8xN4yeaQyfAc02",
+    stripePaymentLink: "https://buy.stripe.com/fZu8wI3tR15ld4Kf6OfAc03",
   }),
 ];
 

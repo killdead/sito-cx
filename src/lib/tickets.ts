@@ -103,7 +103,7 @@ export const WORKSHOPS: TicketProduct[] = [
       "Accesso alle attività del sabato",
       "Iscrizione alla gara di Streetboulder",
     ],
-    amountCents: 2000,
+    amountCents: 2500,
     currency: "eur",
     paypalFallbackEnabled: true,
     stripePaymentLink: "https://buy.stripe.com/fZu8wI3tR15ld4Kf6OfAc03",

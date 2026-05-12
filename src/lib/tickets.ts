@@ -67,7 +67,7 @@ export const PASSES: TicketProduct[] = [
     amountCents: 5000,
     currency: "eur",
     paypalFallbackEnabled: true,
-    stripePaymentLink: "https://buy.stripe.com/aFaaEQc0n29paWC4safAc00",
+    stripePaymentLink: "https://www.tickettailor.com/events/cilentoxtreme/2212020",
   }),
   createProduct({
     id: "festival-pass",
@@ -87,7 +87,7 @@ export const PASSES: TicketProduct[] = [
     amountCents: 3000,
     currency: "eur",
     paypalFallbackEnabled: true,
-    stripePaymentLink: "https://buy.stripe.com/9B6fZac0neWb9Syf6OfAc01",
+    stripePaymentLink: "https://www.tickettailor.com/events/cilentoxtreme/2212020",
   }),
 ];
 
@@ -106,7 +106,7 @@ export const WORKSHOPS: TicketProduct[] = [
     amountCents: 2500,
     currency: "eur",
     paypalFallbackEnabled: true,
-    stripePaymentLink: "https://buy.stripe.com/fZu8wI3tR15ld4Kf6OfAc03",
+    stripePaymentLink: "https://www.tickettailor.com/events/cilentoxtreme/2212020",
   }),
 ];
 

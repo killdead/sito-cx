@@ -330,6 +330,14 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   },
   {
     day: "Domenica",
+    time: "10:30 - 11:30",
+    title: "Workshop di Mindfulness per climbers e highliners",
+    type: "Workshop",
+    category: "Workshop",
+    location: "Campeggio",
+  },
+  {
+    day: "Domenica",
     time: "11:00",
     title: "Seconda task - Gara di precisione paramotore",
     type: "Volo",

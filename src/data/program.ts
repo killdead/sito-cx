@@ -170,14 +170,6 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   },
   {
     day: "Sabato",
-    time: "11:00",
-    title: "Seconda task - Gara di precisione paramotore",
-    type: "Volo",
-    category: "Competizione",
-    location: "Volo",
-  },
-  {
-    day: "Sabato",
     time: "09:30",
     title: "Iscrizioni gara di Streetboulder - Trentinara",
     type: "Climbing",
@@ -207,6 +199,14 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
     type: "Climbing",
     category: "Competizione",
     location: "Trentinara",
+  },
+  {
+    day: "Sabato",
+    time: "11:00",
+    title: "Seconda task - Gara di precisione paramotore",
+    type: "Volo",
+    category: "Competizione",
+    location: "Volo",
   },
   {
     day: "Sabato",
@@ -298,14 +298,6 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
   },
   {
     day: "Domenica",
-    time: "11:00",
-    title: "Seconda task - Gara di precisione paramotore",
-    type: "Volo",
-    category: "Competizione",
-    location: "Volo",
-  },
-  {
-    day: "Domenica",
     time: "10:00 - 18:30",
     title: "Workshop Hike & Fly / Cross Country - Moreno Parmesan",
     type: "Workshop",
@@ -335,6 +327,14 @@ export const PROGRAM_ITEMS: ProgramItem[] = [
     type: "Highline",
     category: "Competizione",
     location: "Trentinara",
+  },
+  {
+    day: "Domenica",
+    time: "11:00",
+    title: "Seconda task - Gara di precisione paramotore",
+    type: "Volo",
+    category: "Competizione",
+    location: "Volo",
   },
   {
     day: "Domenica",
